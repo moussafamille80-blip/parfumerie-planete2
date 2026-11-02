@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-violet mb-4">Tableau de bord</h2>
+<div class="row g-3">
+    <div class="col-md-3"><div class="card card-stat p-3" style="background: linear-gradient(135deg, #6A1B9A, #9C27B0); color: white;"><h6>Produits</h6><h2>{{ nb }}</h2></div></div>
+    <div class="col-md-3"><div class="card card-stat p-3" style="background: linear-gradient(135deg, #E91E63, #F06292); color: white;"><h6>Unités en stock</h6><h2>{{ qte }}</h2></div></div>
+    <div class="col-md-3"><div class="card card-stat p-3" style="background: linear-gradient(135deg, #FF9800, #FFB74D); color: white;"><h6>Valeur d'achat</h6><h2>{{ "{:,.0f}".format(val_achat) }} F</h2></div></div>
+    <div class="col-md-3"><div class="card card-stat p-3" style="background: linear-gradient(135deg, #2E7D32, #66BB6A); color: white;"><h6>Valeur de vente</h6><h2>{{ "{:,.0f}".format(val_vente) }} F</h2></div></div>
+</div>
+<div class="card card-stat mt-4 p-4">
+    <div class="d-flex justify-content-between">
+        <h5>📈 Marge potentielle</h5>
+        <h4 class="text-success">{{ "{:,.0f}".format(marge) }} F CFA</h4>
+    </div>
+</div>
+{% if alertes %}
+<h4 class="mt-4 text-danger">⚠️ Alertes de stock</h4>
+<table class="table table-hover">
+    <thead><tr><th>Produit</th><th>Marque</th><th>Stock</th><th>Seuil</th></tr></thead>
+    <tbody>
+    {% for p in alertes %}
+        <tr class="table-danger"><td>{{ p.nom }}</td><td>{{ p.marque }}</td><td>{{ p.quantite }}</td><td>{{ p.seuil_alerte }}</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
