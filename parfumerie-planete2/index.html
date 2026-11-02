@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planète 2 · Gestion de stock</title>
+<meta name="theme-color" content="#2a1b3d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<aside class="side">
+  <div class="brand"><span class="logo">P2</span><div><b>Planète 2</b><small>Parfumerie</small></div></div>
+  <nav id="nav">
+    <button data-view="dashboard" class="on">Tableau de bord</button>
+    <button data-view="products">Produits</button>
+    <button data-view="moves">Mouvements</button>
+  </nav>
+  <div class="side-foot">
+    <button class="ghost" id="export">Exporter les données</button>
+    <label class="ghost">Importer<input type="file" id="import" accept="application/json" hidden></label>
+  </div>
+</aside>
+<main>
+  <header class="top"><h1 id="title"></h1><div id="actions"></div></header>
+  <section id="view"></section>
+</main>
+<dialog id="dlg"></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
